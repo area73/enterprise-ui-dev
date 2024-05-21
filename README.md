@@ -1,3 +1,5 @@
+[![Run Unit Tests](https://github.com/area73/enterprise-ui-dev/actions/workflows/unit-test.yml/badge.svg)](https://github.com/area73/enterprise-ui-dev/actions/workflows/unit-test.yml)
+
 ![](assets/enterprise-user-interface-development.png)
 
 # Frontend Masters Course
