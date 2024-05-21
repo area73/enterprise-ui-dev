@@ -50,9 +50,51 @@
 #       - run: npm test
 ###############   PARALLEL RUN #############
 
-###############   CACHE RUN #############
+# ###############   CACHE RUN #############
 
-name: Run Parallel with cache
+# name: Run Parallel with cache
+
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Setup Node
+#         uses: actions/setup-node@v3
+#       - uses: actions/cache@v3 # 👀
+#         id: npm-cache # 👀
+#         with: # 👀
+#           path: ~/.npm # 👀
+#           key: npm-${{ hashFiles('**/package-lock.json') }} # 👀
+#       - run: npm ci
+#       - run: npm run build
+
+#   unit-test:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Setup Node
+#         uses: actions/setup-node@v3
+#       - uses: actions/cache@v3 # 👀
+#         id: npm-cache # 👀
+#         with: # 👀
+#           path: ~/.npm # 👀
+#           key: npm-${{ hashFiles('**/package-lock.json') }} # 👀
+#       - run: npm ci
+#       - run: npm test
+# ###############   CACHE RUN #############
+
+###############   CACHE 2 RUN #############
+
+name: Run Parallel with cache 2nd version
 
 on:
   push:
@@ -65,14 +107,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
-      - uses: actions/cache@v3 # 👀
-        id: npm-cache # 👀
-        with: # 👀
-          path: ~/.npm # 👀
-          key: npm-${{ hashFiles('**/package-lock.json') }} # 👀
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
       - run: npm ci
       - run: npm run build
 
@@ -80,14 +120,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
-      - uses: actions/cache@v3 # 👀
-        id: npm-cache # 👀
-        with: # 👀
-          path: ~/.npm # 👀
-          key: npm-${{ hashFiles('**/package-lock.json') }} # 👀
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
       - run: npm ci
       - run: npm test
-###############   CACHE RUN #############
+###############   CACHE 2 RUN #############
